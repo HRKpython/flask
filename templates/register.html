@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<h1>Welcome to Sample Application</h1>
+	<h3> Please register to access the application. </h3>
+	<form method = "POST" action ="/register/" class="form-horizontal">
+		{{ form.csrf_token}}
+		    <p>
+			{{ render_field(form.name) }}
+			{{ render_field(form.email) }}
+			{{ render_field(form.password) }}
+			{{ render_field(form.confirm) }}
+		<br>
+		<br>
+		<p> <button class ="btn btn-md btn-success" type="submit"> Register </button>
+		<br>
+		<p><em>Already registered?</em> Click <a href="/login">here</a> to login.</p>
+	</form>
+
+{% endblock%}
